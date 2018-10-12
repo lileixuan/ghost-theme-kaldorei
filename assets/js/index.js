@@ -79,9 +79,7 @@
             e.preventDefault();
             e.stopPropagation();
             // set target to anchor's "href" attribute
-            // Thanks to @https://github.com/xiongchengqing fixed this bug.
-            var target = document.getElementById($(this).attr('href').split('#')[1]);
-            console.log(target);
+            var target = $(this).attr('href');
             // scroll to each target
             $(target).velocity('scroll', {
                 duration: 500,
@@ -93,14 +91,24 @@
         // tooltip config
         $('[data-rel=tooltip]').tooltip();
 
-        // fancybox 3.1.25 config
+        // fancybox config
         $('.post-content a:has(img)').addClass('fancybox');
-        $(".fancybox").attr('data-fancybox', 'images').fancybox({
-            selector       : '[data-fancybox="images"]',
-            loop           : true,
-            slidesToShow   : 3,
-            slidesToScroll : 3,
-            infinite       : true
+        $(".fancybox").attr('rel', 'gallery-group').fancybox({
+            helpers: {
+                overlay: {
+                    css: {
+                        'background': 'rgba(0, 154, 97, 0.33)'
+                    },
+                    locked: false
+                }
+            },
+            beforeShow: function() {
+                var alt = this.element.find('img').attr('alt');
+
+                this.inner.find('img').attr('alt', alt);
+
+                this.title = alt;
+            }
         });
 
         // add archives year
@@ -154,17 +162,6 @@
             }
         });
     };
-  var isOnPc=!(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent));
-  if (!isOnPc) {
-    $(".site-wrapper").append('<iframe id="music-if" frameborder="no" border="0" marginwidth="0" marginheight="0" width='+200+' height=52 src="https://music.163.com/outchain/player?type=2&id=103035&auto=0&height=32"></iframe>');
-    $("#music-if").css("margin-top", "0px")
-      .css("margin-bottom", "0px")
-      .css("position", "fixed")
-      .css("bottom", "10px")
-      .css("z-index", "10000000");
-  } else {
-    $(".sidebar").append('<iframe id="music-if" frameborder="no" border="0" marginwidth="0" marginheight="0" width=200 height=86 src="https://music.163.com/outchain/player?type=2&id=103035&auto=0&height=66"></iframe>');
-  }
 })(jQuery);
 
 function scrollToTop(name, speed) {

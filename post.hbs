@@ -36,8 +36,12 @@
                         <i class="fa fa-tag"></i>
                         {{tags}}
                     </span>
+                    <span id="{{url}}" class="leancloud-visitors post-meta-item" data-flag-title="{{title}}">
+                        阅读量:
+                        <span class="leancloud-visitors-count">0</span>
+                    </span>
                     <span class="post-meta-item pull-right">
-                      <a href="/ghost/editor/{{id}}/" target="_blank">编辑</a>
+                        <a href="/ghost/editor/{{id}}/" target="_blank">编辑</a>
                     </span>
                 </section>
             </header>
@@ -71,7 +75,7 @@
             {{/next_post}}
         </aside>
 
-        {{> "comments"}}
+        {{> "comments_valine"}}
     </div>
     {{> sidebar}}
 </main>
