@@ -8,9 +8,9 @@
 {{/author}}
 <figure class="author-info">
     <section class="author-info-title">
-        <span><time class="post-date pull-right" datetime="{{date format='YYYY-MM-DD'}}">发表于：{{date format="YYYY-MM-DD"}}</time></span>
+        <span><time class="post-date pull-right" datetime="{{date format='YYYY-MM-DD'}}">发表于 {{date format="YYYY-MM-DD"}}</time></span>
         {{#author}}
-        <span>作者：{{name}}</span>
+        <span>{{name}}</span>
     </section>
     <section class="author-info-content">
         {{#if bio}}

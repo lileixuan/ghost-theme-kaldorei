@@ -3,7 +3,7 @@
     {{! 标签信息 }}
     <section class="tag-meta {{#if @tag.image}}" style="background-image: url({{@tag.image}}){{else}}no-cover{{/if}}">
         <div class="tag-meta-content">
-            <label class="page-title">标签：{{tag.name}}</label>
+            <label class="page-title">{{tag.name}}&ensp;</label>
             <span class="page-description">
                 {{#if tag.description}}
                 {{tag.description}}
@@ -21,7 +21,7 @@
             <h1 class="post-title"><a href="{{url}}">{{{title}}}</a></h1>
         </header>
         <section class="post-excerpt">
-            <p>{{excerpt words="26"}} ... </p>
+            <p>{{excerpt words="26"}}</p>
         </section>
         <footer class="post-meta">
             <span class="post-meta-item post-meta-author">

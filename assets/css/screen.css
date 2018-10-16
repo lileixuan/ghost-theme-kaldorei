@@ -28,7 +28,8 @@
     20. Animations
     21. Static Page
     22. Highlight Code
-
+    23. Archives
+    24. Fancybox Setting
 
 */
 
@@ -57,6 +58,7 @@ html {
 }
 body {
     margin: 0;
+	min-height: 100%;
 }
 a {
     background: transparent;
@@ -368,7 +370,7 @@ blockquote {
     margin: 1.75em 0 1.75em -2.2em;
     font-size: 1.6rem !important;
     border-left: #4A4A4A 0.4em solid;
-    background-color: rgba(102, 128, 153, 0.05);
+    background-color: rgba(102, 128, 153, 0.1);
     border-left: 5px solid rgba(102, 128, 153, 0.075) !important;
 }
 blockquote small {
@@ -536,7 +538,6 @@ body.nav-opened .site-wrapper {
    4. General - The main styles for the the theme
    ========================================================================== */
 
-
 /* Big cover image on the home page */
 
 .main-header {
@@ -546,11 +547,22 @@ body.nav-opened .site-wrapper {
     text-align: center;
     background: #FFF no-repeat center center;
     overflow: hidden;
-    border-bottom: 1px solid #EBF2F6;
+    /* border-bottom: 1px solid #EBF2F6; */
     height: 80px;
     max-height: 80px;
     z-index: 2;
+	background-color:rgba(255,255,255,0.8);
+	box-shadow:1px 1px 70px rgba(0,0,0,0.16);
 }
+
+@media \0screen\,screen\9 {/* 只支持IE6、7、8 */
+  .main-header{
+    filter:Alpha(opacity=80);
+    position:static; /* IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 */
+    *zoom:1; /* 激活IE6、7的haslayout属性，让它读懂Alpha */
+  }
+}
+
 .main-header .inner {
     width: 80%;
 }
@@ -618,7 +630,7 @@ body.nav-opened .site-wrapper {
 }
 .page-description {
     margin: 0;
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 1.5em;
     font-weight: 400;
     font-family: "Microsoft Yahei", "Monaco", sans-serif;
@@ -687,6 +699,7 @@ body.nav-opened .site-wrapper {
     color: #2C3F51;
     text-decoration: none !important;
 }
+
 .post-excerpt p {
     margin: 0;
     font-size: 0.9em;
@@ -1378,11 +1391,13 @@ body.nav-opened .site-wrapper {
     margin: 0 auto;
 }
 .poweredby {
+	font-size: 10px;
     display: block;
     float: right;
     text-align: right;
 }
 .copyright {
+	font-size: 10px;
     display: block;
     float: left;
 }
@@ -1401,11 +1416,27 @@ body.nav-opened .site-wrapper {
     margin-left: auto;
     margin-right: auto;
 }
+
+@media \0screen\,screen\9 {/* 只支持IE6、7、8 */
+  .content{
+    filter:Alpha(opacity=80);
+    position:static; /* IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 */
+    *zoom:1; /* 激活IE6、7的haslayout属性，让它读懂Alpha */
+  }
+  .widget{
+    filter:Alpha(opacity=80);
+    position:static; /* IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 */
+    *zoom:1; /* 激活IE6、7的haslayout属性，让它读懂Alpha */
+  }
+}
+
 .content {
     background: #FFF;
     display: block;
     padding-left: 0 !important;
     padding-right: 0 !important;
+	background-color:rgba(255,255,255,0.8);
+	box-shadow:1px 1px 70px rgba(0,0,0,0.16);
 }
 .sidebar {
     display: block;
@@ -1421,6 +1452,8 @@ body.nav-opened .site-wrapper {
     clear: both;
     margin-bottom: 10px;
     background-color: #FFF;
+	background-color:rgba(255,255,255,0.8);
+	box-shadow:1px 1px 70px rgba(0,0,0,0.16);
 }
 .widget-title {
     padding: 10px 10px 0px 0px;
@@ -2421,6 +2454,15 @@ code.has-numbering {
     margin-right: 4px;
     color: #999;
     display: inline-block;
+}
+
+/* ==========================================================================
+  24. Fancybox Setting
+  ========================================================================== */
+
+.fancybox-is-open .fancybox-bg {
+  opacity: 0.33 !important;
+  background: rgb(0, 154, 97);
 }
 
 /* ==========================================================================
