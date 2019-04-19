@@ -3,7 +3,7 @@
     {{! 标签信息 }}
     <section class="tag-meta {{#if @tag.image}}" style="background-image: url({{@tag.image}}){{else}}no-cover{{/if}}">
         <div class="tag-meta-content">
-            <label class="page-title">{{tag.name}}</label>
+            <label class="page-title">{{t "Tag"}}：{{tag.name}}</label>
             <span class="page-description">
                 {{#if tag.description}}
                     {{tag.description}}
@@ -21,7 +21,7 @@
             <h1 class="post-title"><a href="{{url}}">{{{title}}}</a></h1>
         </header>
         <section class="post-excerpt">
-            <p>{{excerpt words="20"}}</p>
+            <p>{{excerpt words="20"}} ... </p>
         </section>
         <footer class="post-meta">
             <span class="post-meta-item post-meta-author">
@@ -33,10 +33,12 @@
                 <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date timeago="ture"}}</time>
                 {{!-- <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">({{date format="YYYY-MM-DD"}})</time> --}}
             </span>
+            {{#if tags}}
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
                 {{tags}}
             </span>
+            {{/if}}
             <span class="post-meta-item post-meta-reading_time">
                 <i class="fa fa-clock-o"></i>
                 {{reading_time}}
